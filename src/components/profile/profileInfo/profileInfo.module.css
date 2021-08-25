@@ -1,0 +1,11 @@
+.img {
+    background-position: center;
+    background-size: cover;
+    min-height: 150px;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+}
+
+.profileInfo {
+    color: #4d4d4d;
+}

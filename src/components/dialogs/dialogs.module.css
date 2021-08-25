@@ -1,0 +1,39 @@
+.messages {
+    width: 100%;
+}
+
+.dialogs {
+    color: #000;
+    display: flex;
+    width: 100%;
+}
+
+.dialogsItems {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+.sendMessage {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+}
+
+.inputMessage {
+    background: #fff;
+    border: 1px solid #f1f2f2;
+    box-shadow: none;
+    border-radius: 4px;
+    color: #939598;
+    width: 100% !important;
+}
+
+.inputBtn {
+    white-space: nowrap;
+}
