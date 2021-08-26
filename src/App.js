@@ -25,6 +25,7 @@ function App(props) {
             }/>
           <Route path='/dialogs' 
                  render={ ()=><Dialogs 
+                 store={props.store}
                  state={props.state.messagesPage}
                  addMessage={props.addMessage}
                  updateNewMessageText={props.updateNewMessageText}
