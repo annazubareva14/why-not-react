@@ -1,6 +1,6 @@
-import profileReducer from '../redux/profilePage-reducer';
-import messagesReducer from '../redux/messagesPage-reducer';
-import sideBarReducer from '../redux/sideBar-reducer';
+import profileReducer from './profilePage-reducer';
+import messagesReducer from './messagesPage-reducer';
+import sideBarReducer from './sideBar-reducer';
 
 let store = {
     _state: {

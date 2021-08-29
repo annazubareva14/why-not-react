@@ -10,7 +10,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 function App(props) {
-
   return (
     <BrowserRouter>
       <div className="App-wrapper">
@@ -26,9 +25,9 @@ function App(props) {
           <Route path='/dialogs' 
                  render={ ()=><Dialogs 
                  store={props.store}
-                 state={props.state.messagesPage}
-                 addMessage={props.addMessage}
-                 updateNewMessageText={props.updateNewMessageText}
+                 //state={props.state.messagesPage}
+                 //addMessage={props.addMessage}
+                 //updateNewMessageText={props.updateNewMessageText}
             /> 
             }/>
           <Route path='/news' render={ ()=><News/> }/>
