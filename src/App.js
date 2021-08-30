@@ -2,11 +2,11 @@ import './App.css';
 import Header from './components/header/header.jsx';
 import SideBar from './components/sideBar/sideBar.jsx';
 import Profile from './components/profile/profile.jsx';
-import Dialogs from './components/dialogs/dialogs';
 import Music from './components/music/music';
 import News from './components/news/news';
 import Settings from './components/settings/settings';
 import { BrowserRouter, Route } from 'react-router-dom';
+import DialogsContainer from './components/dialogs/dialogsContainer';
 
 
 function App(props) {
@@ -18,12 +18,11 @@ function App(props) {
           <SideBar/>
           <Route path='/profile' 
             render={ ()=><Profile 
-            profilePage={props.state.profilePage} 
-            dispatch={props.dispatch} 
+            store={props.store} 
             /> 
             }/>
           <Route path='/dialogs' 
-                 render={ ()=><Dialogs 
+                 render={ ()=><DialogsContainer 
                  store={props.store}
                  //state={props.state.messagesPage}
                  //addMessage={props.addMessage}
