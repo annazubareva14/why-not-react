@@ -6,19 +6,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
+import StoreContext from './storeContext';
 
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
       <BrowserRouter>
-        <App 
-        //state={store.getState()} 
-        state={state}
-        store={store}
-        dispatch={store.dispatch.bind(store)} 
-        //addMessage={store.addMessage.bind(store)}
-        //updateNewMessageText={store.updateNewMessageText.bind(store)} 
-        />
+        <StoreContext.Provider value={store}>
+          <App/>
+        </StoreContext.Provider>
       </BrowserRouter>,
       document.getElementById('root')
     );

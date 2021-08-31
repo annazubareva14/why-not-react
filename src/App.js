@@ -17,18 +17,9 @@ function App(props) {
         <div className="content-wrapper">
           <SideBar/>
           <Route path='/profile' 
-            render={ ()=><Profile 
-            store={props.store} 
-            /> 
-            }/>
+            render={ ()=><Profile/> }/>
           <Route path='/dialogs' 
-                 render={ ()=><DialogsContainer 
-                 store={props.store}
-                 //state={props.state.messagesPage}
-                 //addMessage={props.addMessage}
-                 //updateNewMessageText={props.updateNewMessageText}
-            /> 
-            }/>
+                 render={ ()=><DialogsContainer/> }/>
           <Route path='/news' render={ ()=><News/> }/>
           <Route path='/music' render={ ()=><Music/> }/>
           <Route path='/settings' render={ ()=><Settings/> }/>
