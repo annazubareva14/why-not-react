@@ -5,28 +5,25 @@ import Profile from './components/profile/profile.jsx';
 import Music from './components/music/music';
 import News from './components/news/news';
 import Settings from './components/settings/settings';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import DialogsContainer from './components/dialogs/dialogsContainer';
 
 
-function App(props) {
+function App() {
   return (
-    <BrowserRouter>
-      <div className="App-wrapper">
-        <Header/>
-        <div className="content-wrapper">
-          <SideBar/>
-          <Route path='/profile' 
-            render={ ()=><Profile/> }/>
-          <Route path='/dialogs' 
-                 render={ ()=><DialogsContainer/> }/>
-          <Route path='/news' render={ ()=><News/> }/>
-          <Route path='/music' render={ ()=><Music/> }/>
-          <Route path='/settings' render={ ()=><Settings/> }/>
-        </div>
+    <div className="App-wrapper">
+      <Header />
+      <div className="content-wrapper">
+        <SideBar />
+        <Route path='/profile'
+          render={() => <Profile />} />
+        <Route path='/dialogs'
+          render={() => <DialogsContainer />} />
+        <Route path='/news' render={() => <News />} />
+        <Route path='/music' render={() => <Music />} />
+        <Route path='/settings' render={() => <Settings />} />
       </div>
-    </BrowserRouter>
-    
+    </div>
   );
 }
 
