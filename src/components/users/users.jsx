@@ -1,46 +1,16 @@
 import React from "react";
 import s from './users.module.css';
+import * as axios from 'axios';
+import userPhoto from '../../assets/images/userPhoto.jpeg';
+import userBackground from "../../assets/images/userBackground.jpeg"
+
 
 let Users = (props) => {
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                photoUrl: 'https://themified.com/friend-finder/images/users/user-8.jpg',
-                backgroundUrl: 'https://themified.com/friend-finder/images/covers/6.jpg',
-                followed: true,
-                fullName: 'Richard Bell',
-                status: 'Student at Harvard',
-                location: { country: 'Russia', city: 'Moscow' }
-            },
-            {
-                id: 2,
-                photoUrl: 'https://themified.com/friend-finder/images/users/user-4.jpg',
-                backgroundUrl: 'https://themified.com/friend-finder/images/covers/3.jpg',
-                followed: true,
-                fullName: 'John Doe',
-                status: 'Traveler',
-                location: { country: 'Ukraine', city: 'Kiev' }
-            },
-            {
-                id: 3,
-                photoUrl: 'https://themified.com/friend-finder/images/users/user-10.jpg',
-                backgroundUrl: 'https://themified.com/friend-finder/images/covers/4.jpg',
-                followed: true,
-                fullName: 'Julia Cox',
-                status: 'Photographer at Photography',
-                location: { country: 'Russia', city: 'Moscow' }
-            },
-            {
-                id: 4,
-                photoUrl: 'https://themified.com/friend-finder/images/users/user-7.jpg',
-                backgroundUrl: 'https://themified.com/friend-finder/images/covers/5.jpg',
-                followed: true,
-                fullName: 'Robert Cook',
-                status: 'Software Engineer',
-                location: { country: 'Russia', city: 'Moscow' }
-            }
-        ])
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        .then(response => {
+            props.setUsers(response.data.items);
+        });
     }
 
     return (
@@ -48,14 +18,14 @@ let Users = (props) => {
             {
                 props.users.map(u => <div key={u.id} className={s.friendsCardWrapper}>
                     <div className={s.friendCard}>
-                        <img src={u.backgroundUrl} alt="profile-cover" className={s.background} />
+                        <img src={ u.background != null ? u.background: userBackground } alt="profile-cover" className={s.background} />
                         <div className={s.cardInfo}>
-                            <img src={u.photoUrl} alt="user" className={s.photo} />
+                            <img src={ u.photos.small != null ? u.photos.small : userPhoto } alt="user" className={s.photo} />
                             <div className={s.info}>
                                 <div className={s.userInfo}>
-                                    <h5><a href="#" className={s.profileLink}> {u.fullName} </a></h5>
+                                    <h5><a href="#" className={s.profileLink}> {u.name} </a></h5>
                                     <p> {u.status} </p>
-                                    <p> {u.location.city}, {u.location.country} </p>
+                                    <p> {"u.location.city"}, {"u.location.country"} </p>
                                 </div>
                                 <div className={s.btnWrapper}>
                                     {u.followed
