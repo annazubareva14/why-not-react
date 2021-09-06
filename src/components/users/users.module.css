@@ -1,12 +1,15 @@
 .friendList {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
     margin-top: 20px;
 }
 
-/* .friendsCardWrapper {
-    width: 50%;
-} */
+.friendsCardWrapper {
+    width: calc(100% / 2 - 2%);
+    display: flex;
+}
 
 .friendCard {
     border-radius: 4px;
