@@ -13,11 +13,13 @@
   width: 100%;
 }
 
-a {
+a, h5, p {
   text-decoration: none;
   color: inherit;
   white-space: nowrap;
+  margin: 0;
 }
+
 
 /* .App-logo {
   height: 40vmin;

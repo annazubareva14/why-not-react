@@ -5,7 +5,6 @@ import MyPostsContainer from './myPosts/myPostsContainer';
 
 
 function Profile(props) {
-  debugger
   return (
     <div className={s.content}>
       <ProfileInfo/>
