@@ -5,22 +5,22 @@ import userPhoto from '../../assets/images/userPhoto.jpeg';
 import userBackground from "../../assets/images/userBackground.jpeg"
 
 
-let Users = (props) => {
-    if (props.users.length === 0) {
+class Users extends React.Component {
+    componentDidMount() {
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
-        .then(response => {
-            props.setUsers(response.data.items);
-        });
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            });
     }
 
-    return (
-        <div className={s.friendList}>
+    render() {
+        return <div className={s.friendList}>
             {
-                props.users.map(u => <div key={u.id} className={s.friendsCardWrapper}>
+                this.props.users.map(u => <div key={u.id} className={s.friendsCardWrapper}>
                     <div className={s.friendCard}>
-                        <img src={ u.background != null ? u.background: userBackground } alt="profile-cover" className={s.background} />
+                        <img src={u.background != null ? u.background : userBackground} alt="profile-cover" className={s.background} />
                         <div className={s.cardInfo}>
-                            <img src={ u.photos.small != null ? u.photos.small : userPhoto } alt="user" className={s.photo} />
+                            <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="user" className={s.photo} />
                             <div className={s.info}>
                                 <div className={s.userInfo}>
                                     <h5><a href="#" className={s.profileLink}> {u.name} </a></h5>
@@ -29,8 +29,8 @@ let Users = (props) => {
                                 </div>
                                 <div className={s.btnWrapper}>
                                     {u.followed
-                                        ? <button onClick={() => { props.unfollow(u.id) }} className={s.btnUnfollow} >unfollow</button>
-                                        : <button onClick={() => { props.follow(u.id) }} className={s.btnFollow} >follow</button>
+                                        ? <button onClick={() => { this.props.unfollow(u.id) }} className={s.btnUnfollow} >unfollow</button>
+                                        : <button onClick={() => { this.props.follow(u.id) }} className={s.btnFollow} >follow</button>
                                     }
                                 </div>
                             </div>
@@ -39,7 +39,7 @@ let Users = (props) => {
                 </div>)
             }
         </div>
-    )
-};
+    }
+}
 
 export default Users;
